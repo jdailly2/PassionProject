@@ -583,6 +583,38 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1620618499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4509207107850769002, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+  m_PrefabInstance: {fileID: 3494546435624781829}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620618504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620618499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9660772517f33b947a20576263d48a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 981315804}
+  playerCam: {fileID: 1272267690}
+  dashForce: 20
+  dashUpwardForce: 0
+  dashDuration: 0.25
+  maxDashYSpeed: 15
+  cam: {fileID: 1272267691}
+  dashFov: 95
+  dashCd: 1
+  dashCdTimer: 1.25
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
+  dashKey: 114
 --- !u!4 &1779486316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 270937192352297348, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
@@ -721,6 +753,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1265347169304129331, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265347169304129331, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
@@ -737,6 +773,14 @@ PrefabInstance:
       value: 306
       objectReference: {fileID: 0}
     - target: {fileID: 5081701550099059225, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081701550099059225, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      propertyPath: airMultipler
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081701550099059225, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
       propertyPath: crouchYScale
       value: 0.75
       objectReference: {fileID: 0}
@@ -744,10 +788,21 @@ PrefabInstance:
       propertyPath: maxSlopeAngle
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 5081701550099059225, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      propertyPath: speedChangeFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5081701550099059225, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      propertyPath: dashSpeedChangeFactor
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4509207107850769002, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1620618504}
   m_SourcePrefab: {fileID: 100100000, guid: ae077eac25307a343ae0645f8dcd00eb, type: 3}
 --- !u!1001 &3712098359561573983
 PrefabInstance:

@@ -2,13 +2,20 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Math = Unity.Mathematics.Geometry.Math;
+
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")] 
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public float dashSpeed;
+    public float speedChangeFactor;
+    public float dashSpeedChangeFactor;
 
+    public float maxYSpeed;
+    
     [Header("Crouching")] 
     public float crouchSpeed;
     public float crouchYScale;
@@ -48,6 +55,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    public bool dashing = false;
+
+    private float desiredMoveSpeed;
+    private float lastDesiredMoveSpeed;
+    private MovementState lastState;
+    private bool keepMomentum;
+    
+    
     //variable that holds the state the player is in
     public MovementState state;
     
@@ -57,10 +72,13 @@ public class PlayerMovement : MonoBehaviour
         walking,
         sprinting,
         crouching,
+        dashing,
         air
     }
     
 
+    
+    
      private void Start()
      {
          rb = GetComponent<Rigidbody>();
@@ -81,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(state);
         
         //adds drag to the player when on the ground
-        if (grounded)
+        if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching)
         {
             rb.linearDamping = groundDrag;
         }
@@ -102,29 +120,71 @@ public class PlayerMovement : MonoBehaviour
      private void StateHandler()
      {
 
+         //Mode - Dashing
+         if (dashing)
+         {
+             state = MovementState.dashing;
+             desiredMoveSpeed = dashSpeed;
+             speedChangeFactor = dashSpeedChangeFactor;
+         }
          //Mode - crouching
-         if (Input.GetKey(crouchKey))
+         else if (Input.GetKey(crouchKey))
          {
              state = MovementState.crouching;
-             moveSpeed = crouchSpeed;
+             desiredMoveSpeed = crouchSpeed;
          }
          //Mode - Sprinting
          else if (grounded && Input.GetKey(sprintKey))
          {
              state = MovementState.sprinting;
-             moveSpeed = sprintSpeed;
+             desiredMoveSpeed = sprintSpeed;
          }else if (grounded)
          {
              state = MovementState.walking;
-             moveSpeed = walkSpeed;
+             desiredMoveSpeed = walkSpeed;
          }
          else
          {
              state = MovementState.air;
+
+             if (desiredMoveSpeed < sprintSpeed)
+             {
+                 desiredMoveSpeed = walkSpeed;
+             }
+             else
+             {
+                 desiredMoveSpeed = sprintSpeed;
+             }
              
          }
-         
-         
+
+         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
+         if (lastState == MovementState.dashing)
+         {
+             keepMomentum = true;
+         }
+
+         //checks to see if the player speed has changes since the last frame
+         if (desiredMoveSpeedHasChanged)
+         {
+             //if player is has changed states and we want them to keep momentum form state
+             if (keepMomentum)
+             {
+                 StopAllCoroutines();
+                 StartCoroutine(SmoothlyLerpMoveSpeed());
+             }
+             else
+             {
+                 StopAllCoroutines();
+                 moveSpeed = desiredMoveSpeed;
+             }
+
+         }
+       
+         lastDesiredMoveSpeed = desiredMoveSpeed;
+         lastState = state;
+
+
      }
      
 
@@ -211,7 +271,11 @@ public class PlayerMovement : MonoBehaviour
              }
          }
          
-         
+         //Limit y vel
+         if (maxYSpeed != 0 && rb.linearVelocity.y > maxYSpeed)
+         {
+             rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y, rb.linearVelocity.z);
+         }
         
          
 
@@ -254,5 +318,26 @@ public class PlayerMovement : MonoBehaviour
          return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
      }
      
-     
+     //Function smoothly changes current speed to deisired speed
+     private IEnumerator SmoothlyLerpMoveSpeed()
+     {
+         float time = 0;
+         float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+         float startValue = moveSpeed;
+
+         float boostFactor = speedChangeFactor;
+
+         while (time < difference)
+         {
+             moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+             time += Time.deltaTime * boostFactor;
+             
+             yield return null;
+         }
+
+         moveSpeed = desiredMoveSpeed;
+         speedChangeFactor = 1f;
+         keepMomentum = false;
+         
+     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-
+using DG.Tweening;
 
 public class MouseLook : MonoBehaviour
 {
@@ -39,4 +39,9 @@ public class MouseLook : MonoBehaviour
 
 
     }
+
+   public void DoFov(float endValue)
+   {
+       GetComponent<Camera>().DOFieldOfView(endValue, 0.25f);
+   }
 }
