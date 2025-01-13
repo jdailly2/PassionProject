@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0483a727-6aaf-40d4-94c7-87baa1eb7d19" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mistoborn Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mistoborn Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/First  person Player .prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/First  person Player .prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Ramp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Ramp.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing Mistborn Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing Mistborn Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +100,7 @@
       <workItem from="1736546921594" duration="20000" />
       <workItem from="1736546970987" duration="14000" />
       <workItem from="1736547067233" duration="194000" />
-      <workItem from="1736547275252" duration="28130000" />
+      <workItem from="1736547275252" duration="29558000" />
     </task>
     <servers />
   </component>

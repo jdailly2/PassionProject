@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 166836567113567574}
   - component: {fileID: 5081701550099059225}
   - component: {fileID: 1265347169304129331}
+  - component: {fileID: 4678935962269747576}
   m_Layer: 0
   m_Name: 'First  person Player '
   m_TagString: Untagged
@@ -159,23 +160,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb824f333d15b0743a6de9e9a59f63d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 7
-  sprintSpeed: 10
+  walkSpeed: 10
+  sprintSpeed: 14
+  dashSpeed: 20
+  speedChangeFactor: 1
+  dashSpeedChangeFactor: 50
+  maxYSpeed: 0
   crouchSpeed: 3.5
-  crouchYScale: 0.5
+  crouchYScale: 0.75
   groundDrag: 5
   groundCheck: {fileID: 5001693707137893503}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
   groundDistance: 0.4
-  jumpForce: 8
+  maxSlopeAngle: 80
+  jumpForce: 12
   jumpCooldown: 0.25
-  airMultipler: 0.4
+  airMultipler: 0.25
   jumpKey: 32
   sprintKey: 304
-  crouchKey: 308
+  crouchKey: 306
   orientation: {fileID: 3571063880033162264}
+  dashing: 0
   state: 0
 --- !u!54 &1265347169304129331
 Rigidbody:
@@ -185,7 +192,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4509207107850769002}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -202,8 +209,35 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &4678935962269747576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509207107850769002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9660772517f33b947a20576263d48a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 3571063880033162264}
+  playerCam: {fileID: 0}
+  dashForce: 20
+  dashUpwardForce: 0
+  dashDuration: 0.25
+  maxDashYSpeed: 15
+  cam: {fileID: 0}
+  dashFov: 95
+  dashCd: 1
+  dashCdTimer: 1.25
+  useCameraForward: 1
+  allowAllDirections: 1
+  disableGravity: 0
+  resetVel: 1
+  dashKey: 114
 --- !u!1 &4827098282616172455
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 4827098282616172455}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.528, z: 0}
+  m_LocalPosition: {x: 0, y: 0.492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
