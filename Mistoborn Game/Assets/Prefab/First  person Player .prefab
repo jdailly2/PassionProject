@@ -234,7 +234,7 @@ MonoBehaviour:
   dashCd: 1
   dashCdTimer: 1.25
   useCameraForward: 1
-  allowAllDirections: 1
+  allowAllDirections: 0
   disableGravity: 0
   resetVel: 1
   dashKey: 114
