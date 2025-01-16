@@ -75,7 +75,9 @@ public class Dashing : MonoBehaviour
 
         if (useCameraForward)
         {
-            forwardT = playerCam;
+            
+            //forwardT = playerCam; this is useded for 1st person
+            forwardT = orientation;
         }
         else
         {

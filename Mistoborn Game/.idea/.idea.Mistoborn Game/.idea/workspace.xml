@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0483a727-6aaf-40d4-94c7-87baa1eb7d19" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mistoborn Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mistoborn Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.XML" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.XML.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefab/First  person Player .prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/First  person Player .prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Testing Mistborn Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Testing Mistborn Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dashing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dashing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCam.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +103,7 @@
       <workItem from="1736547067233" duration="194000" />
       <workItem from="1736547275252" duration="30343000" />
       <workItem from="1736881378542" duration="2377000" />
+      <workItem from="1737047588800" duration="1639000" />
     </task>
     <servers />
   </component>
